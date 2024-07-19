@@ -26,8 +26,8 @@ Este módulo permite gestionar inscripciones de alumnos, cursos, materias, profe
         *   Edita cada usuario en Odoo y asígnalo a uno de los siguientes grupos según su rol:
         *   **Administrador de Educación:** Acceso completo a todas las funcionalidades del módulo.
         *   **Secretaría:** Puede gestionar alumnos, inscripciones y ver información de cursos, materias, profesores y horarios.
-        *   **Profesor:** Puede ver información de alumnos, cursos, materias y horarios, y modificar sus propios datos y los horarios de sus cursos.
-        *   **Alumno:** Puede ver información de cursos, materias y sus propias inscripciones, y modificar sus propios datos.
+        *   **Profesor:** Puede ver información de alumnos, cursos, materias y horarios, y modificar los horarios de sus cursos.
+        *   **Alumno:** Puede ver información de cursos, materias y sus propias inscripciones.
 
 ## Permisos y Acciones por Grupo
 
