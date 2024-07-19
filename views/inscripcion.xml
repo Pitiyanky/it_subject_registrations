@@ -1,0 +1,48 @@
+<odoo>
+  <data>
+    <record id="view_inscripcion_tree" model="ir.ui.view">
+        <field name="name">inscripcion.tree</field>
+        <field name="model">inscripcion</field>
+        <field name="arch" type="xml">
+            <tree string="Inscripciones">
+                <field name="alumno_id"/>
+                <field name="curso_id"/>
+                <field name="fecha_inscripcion"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_inscripcion_form" model="ir.ui.view">
+        <field name="name">inscripcion.form</field>
+        <field name="model">inscripcion</field>
+        <field name="arch" type="xml">
+            <form string="Inscripción">
+                <header>
+                    <button name="action_confirmar" type="object" string="Confirmar" class="oe_highlight"
+                            attrs="{'invisible': [('state', '!=', 'draft')]}"/>
+                    <button name="action_cancelar" type="object" string="Cancelar"
+                            attrs="{'invisible': [('state', '!=', 'done')]}"/>
+                    <button name="action_borrador" type="object" string="Volver a Borrador"
+                            attrs="{'invisible': [('state', '!=', 'cancel')]}"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,done,cancel"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="alumno_id"/>
+                        <field name="curso_id"/>
+                        <field name="fecha_inscripcion"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_inscripcion">
+        <field name="name">Inscripciones</field>
+        <field name="res_model">inscripcion</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+  </data>
+</odoo>

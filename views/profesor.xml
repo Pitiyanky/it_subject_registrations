@@ -1,0 +1,38 @@
+<odoo>
+  <data>
+   <record id="view_profesor_tree" model="ir.ui.view">
+        <field name="name">profesor.tree</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <tree string="Profesores">
+                <field name="name"/>
+                <field name="phone"/>
+                <field name="email"/>
+                <field name="materia_ids" widget="many2many_tags"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_profesor_form" model="ir.ui.view">
+        <field name="name">profesor.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='category_id']" position="after">
+                <field name="materia_ids" widget="many2many_tags" attrs="{'invisible': [('tipo', '!=', 'profesor')]}"/>
+                <field name="tipo" invisible="1"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_profesor">
+        <field name="name">Profesores</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('tipo', '=', 'profesor')]</field>
+        <field name="context">{'default_tipo': 'profesor'}</field>
+    </record>
+
+
+  </data>
+</odoo>

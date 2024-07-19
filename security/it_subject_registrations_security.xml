@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="module_category_educacion" model="ir.module.category">
+            <field name="name">Educación</field>
+            <field name="description">Grupos de seguridad para el módulo de Educación</field>
+            <field name="sequence">10</field> 
+        </record>
+
+        <record id="group_administrador" model="res.groups">
+            <field name="name">Administrador de Educación</field>
+            <field name="category_id" ref="module_category_educacion"/>
+        </record>
+
+        <record id="group_secretaria" model="res.groups">
+            <field name="name">Secretaría</field>
+            <field name="category_id" ref="module_category_educacion"/>
+        </record>
+
+        <record id="group_profesor" model="res.groups">
+            <field name="name">Profesor</field>
+            <field name="category_id" ref="module_category_educacion"/>
+        </record>
+
+        <record id="group_alumno" model="res.groups">
+            <field name="name">Alumno</field>
+            <field name="category_id" ref="module_category_educacion"/>
+        </record>
+    </data>
+</odoo>

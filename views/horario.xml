@@ -1,0 +1,42 @@
+<odoo>
+  <data>
+   <record id="view_horario_tree" model="ir.ui.view">
+        <field name="name">horario.tree</field>
+        <field name="model">horario</field>
+        <field name="arch" type="xml">
+            <tree string="Horarios">
+                <field name="curso_id"/>
+                <field name="dia_semana"/>
+                <field name="hora_inicio" widget="float_time"/>
+                <field name="hora_fin" widget="float_time"/>
+                <field name="numero_salon"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_horario_form" model="ir.ui.view">
+        <field name="name">horario.form</field>
+        <field name="model">horario</field>
+        <field name="arch" type="xml">
+            <form string="Horario">
+                <sheet>
+                    <group>
+                        <field name="curso_id"/>
+                        <field name="dia_semana"/>
+                        <field name="hora_inicio" widget="float_time"/>
+                        <field name="hora_fin" widget="float_time"/>
+                        <field name="numero_salon"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_horario">
+        <field name="name">Horarios</field>
+        <field name="res_model">horario</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+  </data>
+</odoo>

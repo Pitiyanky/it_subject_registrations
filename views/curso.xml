@@ -1,0 +1,80 @@
+<odoo>
+  <data>
+    <record id="view_curso_tree" model="ir.ui.view">
+        <field name="name">curso.tree</field>
+        <field name="model">curso</field>
+        <field name="arch" type="xml">
+            <tree string="Cursos">
+                <field name="name"/>
+                <field name="fecha_inicio"/>
+                <field name="fecha_fin"/>
+                <field name="capacidad_maxima"/>
+                <field name="alumnos_ids" widget="many2many_tags"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_curso_form" model="ir.ui.view">
+        <field name="name">curso.form</field>
+        <field name="model">curso</field>
+        <field name="arch" type="xml">
+            <form string="Curso">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="fecha_inicio"/>
+                        <field name="fecha_fin"/>
+                        <field name="capacidad_maxima"/>
+                    </group>
+                    <notebook>
+                        <page string="Alumnos">
+                            <field name="alumnos_ids" nolabel="1" mode="tree"> 
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                    <field name="fecha_nacimiento"/>
+                                    <field name="edad"/>
+                                    <field name="email"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Profesores">
+                            <field name="profesor_ids" nolabel="1" mode="tree"> 
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                    <field name="phone"/>
+                                    <field name="email"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Materias">
+                            <field name="materia_ids" nolabel="1" mode="tree">
+                                <tree editable="bottom">
+                                    <field name="nombre"/>
+                                    <field name="descripcion"/>
+                                    <field name="creditos"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Horarios">
+                            <field name="horario_ids" nolabel="1">
+                                <tree editable="bottom">
+                                    <field name="dia_semana"/>
+                                    <field name="hora_inicio" widget="float_time"/>
+                                    <field name="hora_fin" widget="float_time"/>
+                                    <field name="numero_salon"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_curso">
+        <field name="name">Cursos</field>
+        <field name="res_model">curso</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+  </data>
+</odoo>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_educacion" name="Educación"/>
+
+    <menuitem id="menu_contactos" name="Contactos" parent="menu_educacion"/>
+    <menuitem id="menu_alumnos" name="Alumnos" parent="menu_contactos" action="action_alumno" groups="it_subject_registrations.group_secretaria,it_subject_registrations.group_alumno,it_subject_registrations.group_administrador,base.group_system"/>
+    <menuitem id="menu_profesores" name="Profesores" parent="menu_contactos" action="action_profesor" groups="it_subject_registrations.group_secretaria,it_subject_registrations.group_profesor,it_subject_registrations.group_administrador,base.group_system"/>
+
+    <menuitem id="menu_cursos" name="Cursos" parent="menu_educacion" action="action_curso"/>
+    <menuitem id="menu_materias" name="Materias" parent="menu_educacion" action="action_materia"/>
+    <menuitem id="menu_inscripciones" name="Inscripciones" parent="menu_educacion" action="action_inscripcion" groups="it_subject_registrations.group_secretaria,it_subject_registrations.group_alumno,it_subject_registrations.group_administrador,base.group_system"/>
+    <menuitem id="menu_horarios" name="Horarios" parent="menu_educacion" action="action_horario"/> 
+
+</odoo>

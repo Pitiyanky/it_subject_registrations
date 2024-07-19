@@ -1,0 +1,53 @@
+<odoo>
+  <data>
+    <record id="view_materia_tree" model="ir.ui.view">
+        <field name="name">materia.tree</field>
+        <field name="model">materia</field>
+        <field name="arch" type="xml">
+            <tree string="Materias">
+                <field name="nombre"/>
+                <field name="creditos"/>
+                <field name="profesor_ids" widget="many2many_tags"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_materia_form" model="ir.ui.view">
+        <field name="name">materia.form</field>
+        <field name="model">materia</field>
+        <field name="arch" type="xml">
+            <form string="Materia">
+                <sheet>
+                    <div class="oe_title"> 
+                        <label for="nombre" class="oe_edit_only"/>
+                        <h1>
+                            <field name="nombre" placeholder="Nombre de la Materia"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="descripcion"/>
+                        <field name="creditos"/>
+                    </group>
+
+                    <notebook>
+                    <page string="Profesores">
+                        <field name="profesor_ids" nolabel="1" mode="tree">
+                            <tree editable="bottom">
+                                <field name="name"/>
+                                <field name="phone"/>
+                                <field name="email"/>
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_materia">
+        <field name="name">Materias</field>
+        <field name="res_model">materia</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+  </data>
+</odoo>
